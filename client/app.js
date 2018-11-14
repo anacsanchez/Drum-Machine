@@ -1,11 +1,16 @@
 import React from 'react';
-import { Home } from './components';
+import { DrumMachine } from './components';
+import store from './store';
+import { Provider } from 'react-redux';
 
 const App = () => {
   return (
-    <div>
-      <Home />
-    </div>
+    <Provider store={store}>
+      <div>
+        <h5>Drum Machine</h5>
+        <DrumMachine />
+      </div>
+    </Provider>
   )
 }
 export default App;
