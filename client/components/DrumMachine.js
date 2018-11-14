@@ -22,47 +22,47 @@ export default DrumMachine;
 
 const drumKeys = [
   {
-    key: 'q',
+    key: 'Q',
     description: 'Cowbell',
     source: './assets/drumset/cowbell-808.wav'
   },
   {
-    key: 'w',
+    key: 'W',
     description: 'Kick Thump',
     source: './assets/drumset/kick-thump.wav'
   },
   {
-    key: 'e',
+    key: 'E',
     description: 'Chirp',
     source: './assets/drumset/perc-chirpy.wav'
   },
   {
-    key: 'a',
+    key: 'A',
     description: 'Ride Cymbal',
     source: './assets/drumset/ride-acoustic01.wav'
   },
   {
-    key: 's',
+    key: 'S',
     description: 'Shaker',
     source: './assets/drumset/shaker-analog.wav'
   },
   {
-    key: 'd',
+    key: 'D',
     description: 'Big Snare',
     source: './assets/drumset/snare-big.wav'
   },
   {
-    key: 'z',
+    key: 'Z',
     description: 'Distressed Snare',
     source: './assets/drumset/snare-dist01.wav'
   },
   {
-    key: 'x',
+    key: 'X',
     description: 'Vinyl Snare',
     source: './assets/drumset/snare-vinyl02.wav'
   },
   {
-    key: 'c',
+    key: 'C',
     description: 'Lo-Fi',
     source: './assets/drumset/tom-lofi.wav'
   }

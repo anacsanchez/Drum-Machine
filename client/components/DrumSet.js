@@ -5,43 +5,43 @@ class DrumSet extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      soundDescrip: '',
+      descrip: '',
       keyList: []
     }
   }
 
   componentWillMount() {
-    document.addEventListener('keydown', this.hitDrumPad)
+    document.addEventListener('keydown', this.hitDrumPad);
   }
 
   componentWillUnmount() {
-    document.removeEventListener('keydown', this.hitDrumPad)
+    document.removeEventListener('keydown', this.hitDrumPad);
   }
 
   hitDrumPad = (evt) => {
-    let drumPad = this.state.keyList.find(drumKey => drumKey.key == evt.key)
+    let drumPad = this.state.keyList.find(drumKey => drumKey.key == evt.key.toUpperCase());
     if (drumPad) {
-      drumPad.audio.play()
+      drumPad.audio.play();
+      this.setState({ descrip: drumPad.description });
     }
-    this.setState({ soundDescrip: drumPad.description })
   }
 
   addDrumPad = (key, audio, description) => {
     this.setState({
       keyList: [...this.state.keyList, { key, audio, description }]
-    })
+    });
   }
 
   render() {
     return (
       <div id="display">
         <div id="sound-descrip">
-          {this.state.soundDescrip}
+          {this.state.descrip}
         </div>
         <div id="drum-pads">
         {
           this.props.drumSet.map((drumKey, i) => {
-            return <DrumPad addDrumPad={this.addDrumPad} drumKey={drumKey} key={i}/>
+            return <DrumPad hitDrumPad={this.hitDrumPad} addDrumPad={this.addDrumPad} drumKey={drumKey} key={i}/>
           })
         }
         </div>
