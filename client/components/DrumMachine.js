@@ -5,7 +5,7 @@ class DrumMachine extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      currSound: '',
+      soundDescrip: '',
       keyList: []
     }
   }
@@ -19,15 +19,14 @@ class DrumMachine extends Component {
   }
 
   hitDrumPad = (evt) => {
-    let drumKey = this.state.keyList.find(thisKey => thisKey.key == evt.key)
-    if (drumKey) {
-      drumKey.audio.play()
+    let drumPad = this.state.keyList.find(drumKey => drumKey.key == evt.key)
+    if (drumPad) {
+      drumPad.audio.play()
     }
-    this.setState({ currSound: drumKey.description })
+    this.setState({ soundDescrip: drumPad.description })
   }
 
   addDrumPad = (key, audio, description) => {
-    console.log(key, audio, description)
     this.setState({
       keyList: [...this.state.keyList, { key, audio, description }]
     })
@@ -38,12 +37,12 @@ class DrumMachine extends Component {
       <div id="drum-machine" >
         <div id="display">
           <div id="sound-descrip">
-            {this.state.currSound}
+            {this.state.soundDescrip}
           </div>
           <div id="drum-pads">
           {
-            drumKeys.map((drumKey, i) => {
-              return <DrumPad addDrumKey={this.addDrumPad} drumKey={drumKey} key={i}/>
+            this.props.drumSet.map((drumKey, i) => {
+              return <DrumPad addDrumPad={this.addDrumPad} drumKey={drumKey} key={i}/>
             })
           }
           </div>
@@ -55,50 +54,3 @@ class DrumMachine extends Component {
 
 export default DrumMachine;
 
-const drumKeys = [
-  {
-    key: 'q',
-    description: 'Cowbell',
-    source: './assets/drumset/cowbell-808.wav'
-  },
-  {
-    key: 'w',
-    description: 'Kick Thump',
-    source: './assets/drumset/kick-thump.wav'
-  },
-  {
-    key: 'e',
-    description: '',
-    source: ''
-  },
-  {
-    key: 'a',
-    description: '',
-    source: ''
-  },
-  {
-    key: 's',
-    description: '',
-    source: ''
-  },
-  {
-    key: 'd',
-    description: '',
-    source: ''
-  },
-  {
-    key: 'z',
-    description: '',
-    source: ''
-  },
-  {
-    key: 'x',
-    description: '',
-    source: ''
-  },
-  {
-    key: 'c',
-    description: '',
-    source: ''
-  }
-];

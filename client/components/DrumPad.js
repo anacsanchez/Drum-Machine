@@ -1,10 +1,10 @@
 import React from 'react';
 
-const DrumPad = ({ addDrumKey, drumKey }) => {
+const DrumPad = ({ addDrumPad, drumKey }) => {
   const { key, source, description } = drumKey;
   return (
     <div className="drum-pad" id={key}>
-      <audio onLoadedData={(evt) => addDrumKey(key, evt.target, description)} src={source}></audio>
+      <audio onLoadedData={(evt) => addDrumPad(key, evt.target, description)} src={source}></audio>
       {key}
     </div>
   )
