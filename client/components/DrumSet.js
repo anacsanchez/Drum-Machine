@@ -5,7 +5,7 @@ class DrumSet extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      descrip: '',
+      descrip:'Start Playing!',
       keyList: []
     }
   }
@@ -29,14 +29,13 @@ class DrumSet extends Component {
 
   addDrumPad = (key, audio, description) => {
     this.setState({
-      keyList: [...this.state.keyList, { key, audio, description }]
+      keyList: [...this.state.keyList, { key, audio, description}]
     });
   }
 
   render() {
     return (
       <div id="display">
-        <div id="title">Drum Machine</div>
         <div id="drum-pads">
         {
           this.props.drumSet.map((drumKey, i) => {
